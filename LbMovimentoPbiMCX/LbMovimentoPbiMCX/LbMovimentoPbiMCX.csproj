@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F9B927CC-E110-46B6-A4CE-0FCE11579552}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>LbMovimentoPbiMCX</RootNamespace>
+    <AssemblyName>LbMovimentoPbiMCX</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.123\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.15.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.15.0\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\WokerLojasMovimentoTroca.cs" />
+    <Compile Include="Business\WorkerClientes.cs" />
+    <Compile Include="Business\WorkerLojaGrupos.cs" />
+    <Compile Include="Business\WorkerLojas.cs" />
+    <Compile Include="Business\WorkerLojasMovimento.cs" />
+    <Compile Include="Business\WorkerLojasMovimentoCartao.cs" />
+    <Compile Include="Business\WorkerProdutos.cs" />
+    <Compile Include="Business\WorkerProdutosDetalhes.cs" />
+    <Compile Include="Business\WorkerProdutosFiliais.cs" />
+    <Compile Include="Business\WorkerVendedores.cs" />
+    <Compile Include="Calls\Call.cs" />
+    <Compile Include="Models\Deseralize.cs" />
+    <Compile Include="Models\LinxClientesViewModel.cs" />
+    <Compile Include="Models\LinxGrupoLojasViewModelcs.cs" />
+    <Compile Include="Models\LinxLojasViewModel.cs" />
+    <Compile Include="Models\LinxMovimentoCartaoViewModel.cs" />
+    <Compile Include="Models\LinxMovimentoTrocasViewModel.cs" />
+    <Compile Include="Models\LinxMovimentoViewModel.cs" />
+    <Compile Include="Models\LinxProdutoViewModel.cs" />
+    <Compile Include="Models\LinxVendedoresViewModel.cs" />
+    <Compile Include="Models\LogIntegracaoViewModel.cs" />
+    <Compile Include="Models\ProdutosDetalhesViewModel.cs" />
+    <Compile Include="Models\Timestamp.cs" />
+    <Compile Include="ProjectInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ProjectInstaller.Designer.cs">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\AtualizaTimestamp.cs" />
+    <Compile Include="Repository\GetParametrosLojas.cs" />
+    <Compile Include="Repository\LInxClientesData.cs" />
+    <Compile Include="Repository\LinxGrupoLojasData.cs" />
+    <Compile Include="Repository\LinxLojasData.cs" />
+    <Compile Include="Repository\LinxLojasMovimentoCartaoData.cs" />
+    <Compile Include="Repository\LinxLojasMovimentoData.cs" />
+    <Compile Include="Repository\LinxLojasMovimentoTrocasData.cs" />
+    <Compile Include="Repository\LinxProdutosData.cs" />
+    <Compile Include="Repository\LinxProdutosDetalhesData.cs" />
+    <Compile Include="Repository\LinxVendedoresData.cs" />
+    <Compile Include="Service1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Service1.Designer.cs">
+      <DependentUpon>Service1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ProjectInstaller.resx">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
